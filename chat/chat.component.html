@@ -15,8 +15,22 @@
                             <div class="message-content">{{message.content}}</div>
                         </div>
                     </ng-container>
+                    <ng-container *ngIf="message.author === 'bot'">
+                        <div class="message-content-wrapper">
+                            <div class="avatar">
+                                <img src="https://th.bing.com/th/id/OIP.jY2ObRBsZ61ojyVlve-sgwHaH0?rs=1&pid=ImgDetMain" alt="Bot Avatar">
+                            </div>
+                            <div class="message-content">{{message.content}}</div>
+                        </div>
+                    </ng-container>
                 </div>
             </ng-container>
+        </div>
+
+        <!--Container for reading user response-->
+        <div class="chat-input-container">
+            <input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" class="styled-input" placeholder="Type your message here...">
+            <fa-icon [icon]="faPaperPlane" class="send-icon" (click)="sendMessage()"></fa-icon>
         </div>
     </div>
 </div>
