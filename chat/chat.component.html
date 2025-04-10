@@ -1,0 +1,22 @@
+<!--Main Container-->
+<div class="container">
+    <!--Creating the chatbot interface section-->
+    <div class="chat-section">
+        <div class="header">
+            <img src="https://th.bing.com/th/id/OIP.jY2ObRBsZ61ojyVlve-sgwHaH0?rs=1&pid=ImgDetMain" alt="CatChat Logo" class="logo">
+            <h1>Le CatChatbot</h1>
+        </div>
+        <!--Creating the Chatbot Container-->
+        <div class="message-container">
+            <ng-container *ngFor="let message of messages">
+                <div class="message" [ngClass]="{'to': message.author === 'bot', 'from': message.author === 'user'}">
+                    <ng-container *ngIf="message.author === 'user'">
+                        <div class="message-content-wrapper">
+                            <div class="message-content">{{message.content}}</div>
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
